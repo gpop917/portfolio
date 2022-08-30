@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Jang Heesun PORTFOLIO</title>
+    <style>
+      @charset "UTF-8";
+      * {margin:0; padding:0; box-sizing:border-box;}
+      body {height:100%; overflow-y: hidden; font-size:10px;}
+      html {height:100%;}
+      body::-webkit-scrollbar {display: none;}
+      ul,li,ol {list-style:none;}
+      a {text-decoration:none; color:#555;}
+
+      #wrap {width:100%; height:100%; position:relative;}
+      #wrap>.wrap_af {content:""; position:fixed; display:block; width:100%;
+        height:100%; background:rgba(0,0,0,0.5); top:0; left:0;z-index:20; }
+      /*오른쪽 버튼*/
+      #dot {width:80px; height:250px;  position:fixed; justify-content:center;
+        align-items:center; display:flex;
+        top:50%; right:0px; transform:translatey(-50%); z-index:100;}
+      #dot>ul {width:40px; height:220px;}
+      #dot li {width:20px; height:20px; position:relative;
+        display:block; margin:10px auto; border-radius:50%;
+        box-shadow:-0px 0px 5px rgba(255,255,255,0.1);}
+      #dot li a {background:rgba(255,255,255,0.7);
+        transition:all 0.3s ease-in-out;
+        top:0; left:0; width:100%; height:100%; outline:none; border-radius:50%;
+        background-color:#fff; background:rgba(255,255,255,0.5);
+        cursor:pointer; position:absolute;}
+      #dot ul .active {box-shadow:0 0 0 2px #0cdaff;}
+
+      #dot ul li:nth-of-type(2).active {box-shadow:0 0 0 2px #0189ff;}
+      #dot ul li:nth-of-type(3).active {box-shadow:0 0 0 2px #f0a91b;}
+      #dot ul li:nth-of-type(4).active {box-shadow:0 0 0 2px #fff;}
+      #dot ul li:nth-of-type(5).active {box-shadow:0 0 0 2px #d6130f;}
+      #dot ul li:nth-of-type(6).active {box-shadow:0 0 0 2px #a0ef08;}
+      #dot ul li:nth-of-type(7).active {box-shadow:0 0 0 2px #9517ff;}
+
+      .active a {transform:scale(0.4);}
+
+      #dot li:hover {opacity:1; cursor:pointer;}
+
+      section{width:100%; height:100%; position:relative;}
+
+      /*페이지*/
+      .page {width:100%; height:100%; position:relative; margin:0 auto; background:#f7f0e4;}
+      /*p0*/
+      #particles-js {width:100%; height:100%; position:relative; background-repeat: no-repeat; background-size: cover;  background-image: url(./img/top1.gif);}
+      /* top 소개글 */
+      #particles {position: absolute; width: 90%; height: 100%; left: 5%;}
+      #particles > .intro {display: none;}
+      #particles > #typing {position: absolute; width: 100%; text-align: center; top: 38%; left: 50%; transform: translateX(-50%); font-family: 'VT323'; font-size: 70px; color: #fff; text-shadow: 1px 1px 1px rgb(255 255 255 / 50%); z-index: 3; animation-name: cursor; animation-duration: 0.3s; animation-iteration-count: infinite;}
+      #particles > p:nth-of-type(2) {text-align: center; font-size: 16px; color: #aaa; position: absolute; top: 52%; left: 50%; transform: translateX(-50%); z-index: 3; font-family: 'Gothic A1';}
+
+
+      /*바탕 포인트 컬러*/
+      .background {width:px; height:px; position:absolute; top:10%;}
+      section .page:not(:nth-of-type(2n)) .con_wrap .background  {left:0;}
+      section .page:nth-of-type(2n) .con_wrap .background {right:0}
+      /* 첫 페이지 */
+      .p01 {background-color: #f26532;}
+      .container1,.container2,.container3,.container4 {width: 1500px; height: 100%; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;}
+
+      /* 왼쪽 박스 */
+      .text-leftbox {width: 500px; height: 100%; background-color: #fff; display: flex; align-items: center;}
+      .text-left-inner {width: 400px; height: 500px; text-align: end;}
+      .text-left-inner > h2 {font-size: 30px; color: #836a6a; height: 80px; }
+      .text-left-inner > h2 > span {color: #ffb8ca; font-size: 43px;}
+      .text-left-inner > h3 {font-size: 35px;}
+      .text-left-inner > p {color: #666; font-size: 18px;}
+      /* 포인트 컬러 */
+      .text-left-inner > .color_1 {width: 100%; height: 60px; margin: 20px 0;}
+      .text-left-inner > .color_1 > p {font-weight: bold; line-height: 20px; font-size: 18px;}
+      .text-left-inner > .color_1 > .swatch {width: 100% ; height: 40px; display: flex; justify-content: end; align-items: center;} 
+      .text-left-inner > .color_1 > .swatch > .colorchip {width: 25px; height: 25px; border-radius: 50%; float: left; margin: 0 5px; border: 1px solid #eee;} 
+      .container1 .text-left-inner > .color_1 > .swatch > .colorchip:first-of-type {background-color: burlywood;}
+      .container1 .text-left-inner > .color_1 > .swatch > .colorchip:nth-of-type(2) {background-color: #000;}
+      .container1 .text-left-inner > .color_1 > .swatch > .colorchip:nth-of-type(3) {background-color: #fff;}
+      /* 설명 글 */
+      .text-left-inner > .color_1 > .text_b {width: 350px; height: 350px; margin-left: 50px;}
+      .text-left-inner > .color_1 > .text_b > p {color: #444; font-size: 12px; line-height: 22px; margin-top: 10px;}
+      
+      /* 오른쪽 박스 */
+      .text-rightbox {width: 1000px; height: 750px; position: relative;}
+      .text-rightbox > .phonebox {width: 290px; height: 550px; position: relative; z-index: 5; bottom: -200px; left: -50px; border-radius: 50px; }
+      .text-rightbox > .phonebox > img {width: 100%; height: 100%;}
+      .text-rightbox > .phonebox > .phone_b {width: 246px; height: 405px; position: absolute; top: 71px; left: 23px; overflow: hidden;}
+      .text-rightbox > .phonebox > .phone_b > a > img {width: 100%;}
+      /* 모니터 */
+      .text-rightbox > a > .monitor {width: 850px; height: 580px; position: absolute; top: 100px; right: 10px; border-radius: 5px 80px; overflow: hidden; box-shadow: 4px 4px 4px #0003;}
+      .text-rightbox > a > .monitor > .bg {width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.3); position: absolute; z-index: 3;}
+      .text-rightbox > a > .monitor > .bg > img {width: 60px; height: 60px; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); }
+      .text-rightbox > a > .monitor > .monitor_b {width: 6800px; height: 100%;}
+      .text-rightbox > a > .monitor > .monitor_b > li {width: 850px; height: 100%; float: left;}
+      .text-rightbox > a > .monitor > .monitor_b > li > img {width: 100%; height: 100%;}
+
+      /* p2 */
+      .container2 > .img-leftbox {width: 1000px; height: 750px; position: relative;}
+      .img-leftbox > .text-rightbox > a > .monitor {width: 850px; height: 580px; position: absolute; top: 100px; right: 70px; border-radius: 5px 80px; overflow: hidden; box-shadow: 4px 4px 4px #0003;}
+      /* p2 포인트 컬러 */
+      .container2 .text-left-inner > .color_1 > .swatch > .colorchip:first-of-type {background-color: #6B6868;}
+      .container2 .text-left-inner > .color_1 > .swatch > .colorchip:nth-of-type(2) {background-color: #657A60;}
+      .container2 .text-left-inner > .color_1 > .swatch > .colorchip:nth-of-type(3) {background-color: #fff;}
+
+      /* p3 */
+      .container3 .text-left-inner > .color_1 > .swatch > .colorchip:first-of-type {background-color: #f26532;}
+      .container3 .text-left-inner > .color_1 > .swatch > .colorchip:nth-of-type(2) {background-color: #777;}
+      .container3 .text-left-inner > .color_1 > .swatch > .colorchip:nth-of-type(3) {background-color: #fff;}
+
+      /* p4 */
+      .container4 .text-left-inner > .color_1 > .swatch > .colorchip:first-of-type {background-color: #FFD800;}
+      .container4 .text-left-inner > .color_1 > .swatch > .colorchip:nth-of-type(2) {background-color: #222;}
+      .container4 .text-left-inner > .color_1 > .swatch > .colorchip:nth-of-type(3) {background-color: #fff;}
+
+      /* p5 */
+      .right-textbox-footer {width: 980px; height: 780px;  position: absolute; right: 195px; top: 150px; }
+      .right-textbox-footer > .prof {position: relative; padding-top: 20px; }
+      /* .right-textbox-footer > .prof > .photo-me {background: url(./img/photo-me.jpg) no-repeat center/cover ; width: 267px; height: 300px; position: absolute; top: -30px; right: 0; text-indent: -9999px; border-radius: 10%; } */
+      .right-textbox-footer > .prof > h3 {position: relative; padding-left: 25px; font-size: 25px; margin-bottom: 15px; }
+      .right-textbox-footer > .prof > h3::before {content: ""; display: block; width: 20px; height: 10px; background: salmon; transform: rotate(-45deg); border-radius: 10px; position: absolute; top: 15px; left: 0;  }
+      .right-textbox-footer > .prof > p {line-height: 25px; font-size: 17px; margin-bottom: 20px; margin-left: 28px; }
+      .page > img {width: 300px; height: 400px; border-radius: 15%; margin: 200px 0 0 300px;  }
+
+
+      .p02 {background-color: palegoldenrod;}
+      .p01 {background-color: bisque;}
+      .p04 {background:#6B6868;}
+      .p05 {background:burlywood; }
+      .p03 {background: url(./img/footer-end.jpeg) no-repeat center/cover; width: 100%; height: 100%;  }
+
+      /*pf_bot*/
+      .pf_bot {width:100%; height:100%; padding:50px 0; position:relative;}
+
+
+
+    </style>
+
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.0.min.js" > </script>
+
+    <script src="./js/js"></script>
+
+    <script>
+    </script>
+
+  </head>
+  <body>
+    <div id="wrap">
+      <div class="wrap_af"></div>
+      <!--오른쪽 슬라이드 버튼-->
+      <div id="dot">
+        <ul>
+          <li><a href="#p0"></a></li>
+          <li><a href="#p1"></a></li>
+          <li><a href="#p2"></a></li>
+          <li><a href="#p3"></a></li>
+          <li><a href="#p4"></a></li>
+          <li><a href="#p5"></a></li>
+          <li><a href="#p6"></a></li>
+        </ul>
+      </div>
+      <header>
+
+      </header>
+
+      <section class="page_wrap">
+        <!-- page 00 -->
+        <div class="page p00 section" id="particles-js">
+          <div id="particles">
+            <div class="intro">HI! My name is Heesun Jang!</div>
+            <div class="intro">I'm Web Publisher.</div>
+            <p id="typing"></p>
+            <p>HTML / CSS / JAVA SCRIPT / J-QUERY / RESPONSIVE DESIGN / OPEN API / JSON</p>
+          </div>
+        </div>
+        <!-- 01 PF-->
+        <article class="page p05 section" id="p1">
+          <div class="container1">
+            <div class="text-leftbox">
+              <div class="text-left-inner">
+                <h2>PROJECT <span>01</span></h2>
+                <h3>WATCH VOWOOD</h3>
+                <p>Wooden Watch Vowood</p>
+                <!-- 포인트 컬러 -->
+                <div class="color_1">
+                  <p>color</p>
+                  <div class="swatch">
+                    <div class="colorchip"></div>
+                    <div class="colorchip"></div>
+                    <div class="colorchip"></div>
+                  </div>
+                  <div class="text_b">
+                    <p>나무 시계 보우드의 웹 페이지 입니다. <br>
+                    시계의 디자인이 친환경적인 나무를 사용하여 <br>
+                    배경을 절제한 레이아웃을 사용하였습니다. <br> <br>
+                    시계의 나무색과 어울리는 갈색을 포인트 컬러로 하고, <br>
+                    깔끔한 화이트 컬러로 하여<br>
+                    웹페이지가 단아해보이도록 하였습니다. <br> <br>
+                    디스플레이의 종류에 따라 화면의 크기가 변하도록 <br>
+                    반응형으로 제작해 최적의 사용 환경을 제공하였습니다.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="img-rightbox">
+              <div class="text-rightbox">
+                <div class="phonebox">
+                  <img src="./img/phone.png" alt="phoneimg">
+                  <div class="phone_b">
+                    <a href="https://gpop917.github.io/project2/">
+                      <img src="./img/vowood-phone.jpeg" alt="">
+                    </a>
+                  </div>
+                </div>
+
+                <a href="https://gpop917.github.io/project2/">
+                  <div class="monitor">
+                    <div class="bg" style="display: none; opacity:1;">
+                      <img src="./img/search.png" alt="">
+                    </div>
+                    <ul class="monitor_b" id="monitor_b1">
+                      <li><img src="./img/cutimg1.jpeg" alt=""></li>
+                      <li><img src="./img/cutimg2.jpeg" alt=""></li>
+                      <li><img src="./img/cutimg3.jpeg" alt=""></li>
+                      <li><img src="./img/cutimg4.jpeg" alt=""></li>
+                      <li><img src="./img/cutimg5.jpeg" alt=""></li>
+                    </ul>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </article>
+        <!-- 02 PF-->
+        <article class="page p04 section" id="p5">
+          <div class="container2">
+            <div class="img-leftbox">
+              <div class="text-rightbox">
+                <a href="https://gpop917.github.io/project_1/">
+                  <div class="monitor">
+                    <div class="bg" style="display: none; opacity:1;">
+                      <img src="./img/search.png" alt="">
+                    </div>
+                    <ul class="monitor_b" id="monitor_b2">
+                      <li><img src="./img/p2-cutimg1.jpeg" alt=""></li>
+                      <li><img src="./img/p2-cutimg2.jpeg" alt=""></li>
+                      <li><img src="./img/p2-cutimg3.jpeg" alt=""></li>
+                      <li><img src="./img/p2-cutimg4.jpeg" alt=""></li>
+                      <li><img src="./img/p2-cutimg5.jpeg" alt=""></li>
+                    </ul>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <div class="text-leftbox">
+              <div class="text-left-inner">
+                <h2>PROJECT <span>02</span></h2>
+                <h3>BYREDO PERFUME</h3>
+                <p>Perfume Byredo Blanche</p>
+                <!-- 포인트 컬러 -->
+                <div class="color_1">
+                  <p>color</p>
+                  <div class="swatch">
+                    <div class="colorchip"></div>
+                    <div class="colorchip"></div>
+                    <div class="colorchip"></div>
+                  </div>
+                  <div class="text_b">
+                    <p>향수 바이레도 블랑쉬의 웹 페이지 입니다. <br>
+                    향수의 디자인이 대체적으로 심플하여 <br>
+                    배경을 절제한 레이아웃을 사용하였습니다. <br> <br>
+                    향수의 심플함과 어울리는 연한 녹색을 배경색으로 하고, <br>
+                    깔끔한 화이트 컬러로 하여<br>
+                    웹페이지가 단아해보이도록 하였습니다. 
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+        <!-- 03 PF-->
+        <article class="page p01 section" id="p2">
+          <div class="container3">
+            <div class="text-leftbox">
+              <div class="text-left-inner">
+                <h2>PROJECT <span>03</span></h2>
+                <h3>BOOKCUBE</h3>
+                <p>Use Open Api (JSON)</p>
+                <!-- 포인트 컬러 -->
+                <div class="color_1">
+                  <p>color</p>
+                  <div class="swatch">
+                    <div class="colorchip"></div>
+                    <div class="colorchip"></div>
+                    <div class="colorchip"></div>
+                  </div>
+                  <div class="text_b">
+                    <p>전자 서점 북큐브의 도서 웹페이지입니다. <br>
+                    메인 페이지에 오늘의 추천 책들이 <br>
+                    자동으로 넘어가게 하여 편리함을 더했습니다. <br> <br>
+                    책이 돋보일 수 있게 흰색, 회색을 배경으로 주로 사용하였고, <br>
+                    로고의 주황색을 포인트 컬러로 사용하였습니다.<br> <br>
+                    도서는 서버에서 내용을 받아오는 데이터 형식 JSON을 <br>
+                    이용하여 카카오 open api을 통해 가져왔습니다. <br>
+                    AJAX를 사용하여 데이터를 받아 제이쿼리, 자바스크립트로 <br>
+                    동적인 효과를 주었습니다.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="img-rightbox">
+              <div class="text-rightbox">
+                <a href="https://gpop917.github.io/project4/">
+                  <div class="monitor">
+                    <div class="bg" style="display: none; opacity:1;">
+                      <img src="./img/search.png" alt="">
+                    </div>
+                    <ul class="monitor_b" id="monitor_b3">
+                      <li><img src="./img/p3-cutimg1.jpeg" alt=""></li>
+                      <li><img src="./img/p3-cutimg2.jpeg" alt=""></li>
+                      <li><img src="./img/p3-cutimg3.jpeg" alt=""></li>
+                      <li><img src="./img/p3-cutimg4.jpeg" alt=""></li>
+                      <li><img src="./img/p3-cutimg5.jpeg" alt=""></li>
+                    </ul>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </article>
+        <!-- 04 PF-->
+        <article class="page p02 section" id="p3">
+          <div class="container4">
+            <div class="img-leftbox">
+              <div class="text-rightbox">
+                <a href="https://gpop917.github.io/project3/">
+                  <div class="monitor">
+                    <div class="bg" style="display: none; opacity:1;">
+                      <img src="./img/search.png" alt="">
+                    </div>
+                    <ul class="monitor_b" id="monitor_b4">
+                      <li><img src="./img/p4-cutimg1.jpeg" alt=""></li>
+                      <li><img src="./img/p4-cutimg2.jpeg" alt=""></li>
+                      <li><img src="./img/p4-cutimg3.jpeg" alt=""></li>
+                      <li><img src="./img/p4-cutimg4.jpeg" alt=""></li>
+                      <li><img src="./img/p4-cutimg5.jpeg" alt=""></li>
+                    </ul>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <div class="text-leftbox">
+              <div class="text-left-inner">
+                <h2>PROJECT <span>04</span></h2>
+                <h3>MAN.G</h3>
+                <p>Graphiste Man.g</p>
+                <!-- 포인트 컬러 -->
+                <div class="color_1">
+                  <p>color</p>
+                  <div class="swatch">
+                    <div class="colorchip"></div>
+                    <div class="colorchip"></div>
+                    <div class="colorchip"></div>
+                  </div>
+                  <div class="text_b">
+                    <p>의류 그라피스트 만지의 웹 페이지 입니다. <br>
+                    옷들의 디자인이 대체적으로 눈에 튀어서 <br>
+                    배경색을 블랙으로 사용하였습니다. <br> <br>
+                    로고색 배경색이 노랑색이라서 포인트 컬러로 사용하였고,<br>
+                    배경에 화이트와 블랙을 섞어 포인트 컬러가 돋보일 수 있게하고<br>
+                    웹 페이지를 옷이 눈에 띄도록 제작하였습니다.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+        <!-- 05 PF-->
+        <article class="page p03 section" id="p4">
+          <img src="./img/photo-me.jpg" alt="">
+          <div class="right-textbox-footer">
+            <div class="prof">
+              <h3>Profile</h3>
+              <p>
+                NAME : 장희선 Jang HeeSun <br>
+                AGE : 22 <br>
+                BIRTHDAY : 2001.11.29 <br>
+                ADDRESS : Ansan-si <br>
+                E-MAIL : gpop917@naver.com <br>
+                PHONE : 010-3837-8739 <br>
+              </p>
+            </div>
+            <div class="prof">
+              <h3>About me</h3>
+              <p>안녕하세요. 웹퍼블리셔를 꿈꾸는 장희선입니다. <br>
+                지난 7년간 해왔던 모델,배우일로 사회성과 사진 감성등의 경력들을 살려 <br>
+                새로운 직업에 도전 해 보려고 합니다. <br><br>
+                아직은 서툴고 부족하기에 많은 노력이 필요하겠지만, <br>
+                배우와 모델 일을 했던 것처럼 끈기를 가지고 성실히 임하겠습니다. <br>
+
+              </p>
+            </div>
+            <div class="prof">
+              <h3>Experiences & Education</h3>
+              <p>2016~2017 극단 고등어 활동 <br>
+                2017~2019 YTM FAMILY 엔터 전속 모델 <br>
+                2020-2022 쇼핑몰 모델 및 업무 <br>
+                2020-2022 국제대 모델연기과 졸업 </p>
+            </div>
+          </div>
+        </article>
+        <!--마지막 페이지 모음-->
+        <div class="pf_bot page section" id="p6">
+        </div><!--//pf_bot-->
+      </section>
+    </div><!--//wrap-->
+  </body>
+</html>
