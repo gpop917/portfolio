@@ -35,7 +35,6 @@
       #dot ul li:nth-of-type(4).active {box-shadow:0 0 0 2px #fff;}
       #dot ul li:nth-of-type(5).active {box-shadow:0 0 0 2px #d6130f;}
       #dot ul li:nth-of-type(6).active {box-shadow:0 0 0 2px #a0ef08;}
-      #dot ul li:nth-of-type(7).active {box-shadow:0 0 0 2px #9517ff;}
 
       .active a {transform:scale(0.4);}
 
@@ -78,7 +77,7 @@
       .container1 .text-left-inner > .color_1 > .swatch > .colorchip:nth-of-type(2) {background-color: #000;}
       .container1 .text-left-inner > .color_1 > .swatch > .colorchip:nth-of-type(3) {background-color: #fff;}
       /* 설명 글 */
-      .text-left-inner > .color_1 > .text_b {width: 350px; height: 350px; margin-left: 50px;}
+      .text-left-inner > .color_1 > .text_b {width: 350px; height: 250px; margin-left: 50px;}
       .text-left-inner > .color_1 > .text_b > p {color: #444; font-size: 12px; line-height: 22px; margin-top: 10px;}
       
       /* 오른쪽 박스 */
@@ -95,6 +94,8 @@
       .text-rightbox > a > .monitor > .monitor_b > li {width: 850px; height: 100%; float: left;}
       .text-rightbox > a > .monitor > .monitor_b > li > img {width: 100%; height: 100%;}
 
+      /* p1 */
+      .buttonbox {width: 100%; height: 500px;  }
       /* p2 */
       .container2 > .img-leftbox {width: 1000px; height: 750px; position: relative;}
       .img-leftbox > .text-rightbox > a > .monitor {width: 850px; height: 580px; position: absolute; top: 100px; right: 70px; border-radius: 5px 80px; overflow: hidden; box-shadow: 4px 4px 4px #0003;}
@@ -136,6 +137,7 @@
 
     </style>
 
+    <link rel="stylesheet" href="./css/button.css">
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.0.min.js" > </script>
 
     <script src="./js/js"></script>
@@ -156,7 +158,6 @@
           <li><a href="#p3"></a></li>
           <li><a href="#p4"></a></li>
           <li><a href="#p5"></a></li>
-          <li><a href="#p6"></a></li>
         </ul>
       </div>
       <header>
@@ -166,11 +167,12 @@
       <section class="page_wrap">
         <!-- page 00 -->
         <div class="page p00 section" id="particles-js">
+          
           <div id="particles">
             <div class="intro">HI! My name is Heesun Jang!</div>
             <div class="intro">I'm Web Publisher.</div>
             <p id="typing"></p>
-            <p>HTML / CSS / JAVA SCRIPT / J-QUERY / RESPONSIVE DESIGN / OPEN API / JSON</p>
+            <p>HTML / CSS / JAVASCRIPT / J-QUERY / RESPONSIVE DESIGN / OPEN API / JSON</p>
           </div>
         </div>
         <!-- 01 PF-->
@@ -199,6 +201,25 @@
                     디스플레이의 종류에 따라 화면의 크기가 변하도록 <br>
                     반응형으로 제작해 최적의 사용 환경을 제공하였습니다.
                     </p>
+                  </div>
+                  <!-- 버튼 -->
+                  <div class="buttonbox">
+                    <div class="svg-wrapper">
+                      <svg height="40" width="100" xmlns="http://www.w3.org/2000/svg">
+                        <rect id="shape" height="40" width="100" />
+                        <div id="text">
+                          <a href="https://gpop917.github.io/project2/"><span class="spot"></span>Main</a>
+                        </div>
+                      </svg>
+                    </div>
+                    <div class="svg-wrapper">
+                      <svg height="40" width="100" xmlns="http://www.w3.org/2000/svg">
+                        <rect id="shape" height="40" width="100" />
+                        <div id="text">
+                          <a href="https://gpop917.github.io/project2/sub.html"><span class="spot"></span>Sub</a>
+                        </div>
+                      </svg>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -277,6 +298,16 @@
                     웹페이지가 단아해보이도록 하였습니다. 
                     </p>
                   </div>
+                  <div class="buttonbox">
+                    <div class="svg-wrapper">
+                      <svg height="40" width="100" xmlns="http://www.w3.org/2000/svg">
+                        <rect id="shape" height="40" width="100" />
+                        <div id="text">
+                          <a href="https://gpop917.github.io/project_1/"><span class="spot"></span>Main</a>
+                        </div>
+                      </svg>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -309,6 +340,16 @@
                     AJAX를 사용하여 데이터를 받아 제이쿼리, 자바스크립트로 <br>
                     동적인 효과를 주었습니다.
                     </p>
+                  </div>
+                  <div class="buttonbox">
+                    <div class="svg-wrapper">
+                      <svg height="40" width="100" xmlns="http://www.w3.org/2000/svg">
+                        <rect id="shape" height="40" width="100" />
+                        <div id="text">
+                          <a href="https://gpop917.github.io/project4/"><span class="spot"></span>Main</a>
+                        </div>
+                      </svg>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -378,6 +419,16 @@
                     웹 페이지를 옷이 눈에 띄도록 제작하였습니다.
                     </p>
                   </div>
+                  <div class="buttonbox">
+                    <div class="svg-wrapper">
+                      <svg height="40" width="100" xmlns="http://www.w3.org/2000/svg">
+                        <rect id="shape" height="40" width="100" />
+                        <div id="text">
+                          <a href="https://gpop917.github.io/project3/"><span class="spot"></span>Main</a>
+                        </div>
+                      </svg>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -400,7 +451,7 @@
             </div>
             <div class="prof">
               <h3>About me</h3>
-              <p>안녕하세요. 웹퍼블리셔를 꿈꾸는 장희선입니다. <br>
+              <p>안녕하세요. 신입 웹퍼블리셔 장희선입니다. <br>
                 지난 7년간 해왔던 모델,배우일로 사회성과 사진 감성등의 경력들을 살려 <br>
                 새로운 직업에 도전 해 보려고 합니다. <br><br>
                 아직은 서툴고 부족하기에 많은 노력이 필요하겠지만, <br>
@@ -417,9 +468,7 @@
             </div>
           </div>
         </article>
-        <!--마지막 페이지 모음-->
-        <div class="pf_bot page section" id="p6">
-        </div><!--//pf_bot-->
+
       </section>
     </div><!--//wrap-->
   </body>
